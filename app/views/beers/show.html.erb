@@ -21,7 +21,7 @@
   <% else %>
    <strong>Rating:</strong>
    Average 
-   <%= @beer.average_rating %>
+   <%= '%.2f' % @beer.average_rating %>
    out of
    <%= pluralize(@beer.ratings.count, 'rating') %>.
   <% end %>

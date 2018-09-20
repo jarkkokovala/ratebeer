@@ -1,10 +1,9 @@
 module RatingAverage
-    extend ActiveSupport::Concern
-   
-    def average_rating
-        r = ratings.pluck(:score)
-        if r.length != 0
-            r.sum / r.length
-        end
-    end
+  extend ActiveSupport::Concern
+
+  def average_rating
+    return 0 if ratings.empty?
+
+    ratings.map(&:score).sum / ratings.count.to_f
+  end
 end
