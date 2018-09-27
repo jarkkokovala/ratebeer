@@ -4,8 +4,11 @@ include Helpers
 
 describe "Beer" do
     let!(:brewery) { FactoryBot.create :brewery, name:"Koff" }
+    let!(:user) { FactoryBot.create :user, username:"Pekka", password:"Foobar1"}
 
     it "when beer is created with valid content, is added to system" do
+        sign_in(username: 'Pekka', password: 'Foobar1')
+
         visit new_beer_path
 
         fill_in('beer[name]', with:'Bisse')
@@ -18,6 +21,8 @@ describe "Beer" do
     end
 
     it "when beer is created with no name, is not added and error message is output" do
+        sign_in(username: 'Pekka', password: 'Foobar1')
+
         visit new_beer_path
 
         select('Koff', from:'beer[brewery_id]')
