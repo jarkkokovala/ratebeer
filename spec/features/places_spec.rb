@@ -5,7 +5,7 @@ describe "Places" do
     allow(BeermappingApi).to receive(:places_in).with("kumpula").and_return(
       [ Place.new( name:"Oljenkorsi", id: 1 ) ]
     )
-    allow(ApixuApi).to receive(:places_in).with("helsinki").and_return(
+    allow(ApixuApi).to receive(:weather_in).with("helsinki").and_return(
       nil
     )
 
@@ -20,7 +20,7 @@ describe "Places" do
     allow(BeermappingApi).to receive(:places_in).with("helsinki").and_return(
         [ Place.new( name:"Bryggeri", id: 1 ), Place.new( name:"Kaisla", id: 2 ) ]
         )
-    allow(ApixuApi).to receive(:places_in).with("helsinki").and_return(
+    allow(ApixuApi).to receive(:weather_in).with("helsinki").and_return(
       nil
     )
 
@@ -34,7 +34,7 @@ describe "Places" do
 
   it "if no places are found, notice is displayed" do
     allow(BeermappingApi).to receive(:places_in).with("invalid").and_return( [] )
-    allow(ApixuApi).to receive(:places_in).with("helsinki").and_return(
+    allow(ApixuApi).to receive(:weather_in).with("helsinki").and_return(
       nil
     )
     
