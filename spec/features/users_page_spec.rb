@@ -39,8 +39,9 @@ describe "User" do
     user2 = FactoryBot.create :user, username:"Keijo"
     brewery = FactoryBot.create :brewery, name:"Koff"
     brewery2 = FactoryBot.create :brewery, name:"Olvi"
+    style = FactoryBot.create :style, name:"IPA"
     beer1 = FactoryBot.create :beer, name:"iso 3", brewery:brewery
-    beer2 = FactoryBot.create :beer, name:"Karhu", style:"IPA", brewery:brewery2
+    beer2 = FactoryBot.create :beer, name:"Karhu", style:style, brewery:brewery2
     r1 = FactoryBot.create :rating, score: 10, beer: beer1, user: user
     r2 = FactoryBot.create :rating, score: 20, beer: beer2, user: user
     r3 = FactoryBot.create :rating, score: 30, beer: beer2, user: user2

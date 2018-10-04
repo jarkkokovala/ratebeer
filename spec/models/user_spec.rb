@@ -60,11 +60,13 @@ RSpec.describe User, type: :model do
     end
 
     it "is the one with the best average rating if several rated" do
-      beer = FactoryBot.create(:beer, style: "Lager")
+      style = FactoryBot.create(:style, name:"Lager")
+      style2 = FactoryBot.create(:style, name:"IPA")
+      beer = FactoryBot.create(:beer, style: style)
       FactoryBot.create(:rating, score: 15, beer: beer, user: user)
-      beer2 = FactoryBot.create(:beer, style: "IPA")
+      beer2 = FactoryBot.create(:beer, style: style2)
       FactoryBot.create(:rating, score: 10, beer: beer2, user: user)
-      beer3 = FactoryBot.create(:beer, style: "IPA")
+      beer3 = FactoryBot.create(:beer, style: style2)
       FactoryBot.create(:rating, score: 30, beer: beer3, user: user)
 
       expect(user.favorite_style).to eq(beer2.style)

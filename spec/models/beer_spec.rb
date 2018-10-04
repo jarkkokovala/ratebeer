@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Beer, type: :model do
   let(:test_brewery) { Brewery.new name: "Koff", year: 1896 }
+  let(:test_style) { Style.new name: "Lager" }
   describe "is not saved" do
     it "without name" do
-      beer = Beer.create style: "Lager", brewery: test_brewery
+      beer = Beer.create style: test_style, brewery: test_brewery
 
       expect(beer).not_to be_valid
       expect(Beer.count).to eq(0)
@@ -17,7 +18,7 @@ RSpec.describe Beer, type: :model do
     end
   end
   it "is saved with name, style and brewery" do
-    beer = Beer.create name: "Koff 3", style: "Lager", brewery: test_brewery
+    beer = Beer.create name: "Koff 3", style: test_style, brewery: test_brewery
 
     expect(beer).to be_valid
     expect(Beer.count).to eq(1)

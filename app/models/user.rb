@@ -27,7 +27,8 @@ class User < ApplicationRecord
   def favorite_style
     return nil if ratings.empty?
 
-    ratings.joins(:beer).group('beers.style').average('score').sort_by { |a| a[1] }.reverse.first[0]
+    style_id = ratings.joins(:beer).group('beers.style_id').average('score').sort_by { |a| a[1] }.reverse.first[0]
+    Style.find_by(id: style_id)
   end
 
   def favorite_brewery

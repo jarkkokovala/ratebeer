@@ -4,6 +4,7 @@ include Helpers
 
 describe "Beer" do
     let!(:brewery) { FactoryBot.create :brewery, name:"Koff" }
+    let!(:style) { FactoryBot.create :style, name:"IPA" }
     let!(:user) { FactoryBot.create :user, username:"Pekka", password:"Foobar1"}
 
     it "when beer is created with valid content, is added to system" do
@@ -13,7 +14,7 @@ describe "Beer" do
 
         fill_in('beer[name]', with:'Bisse')
         select('Koff', from:'beer[brewery_id]')
-        select('IPA', from:'beer[style]')
+        select('IPA', from:'beer[style_id]')
 
         expect{
             click_button('Create Beer')
