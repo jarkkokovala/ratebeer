@@ -64,3 +64,4 @@ RSpec.configure do |config|
 end
 
 require 'helpers'
+require 'webmock/rspec'

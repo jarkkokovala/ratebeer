@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beer place:</strong>
+  <%= @place.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @place.street %>, <%= @place.zip %> <%= @place.city %>, <%= @place.country %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @place.phone %>
+</p>
+
+<%= link_to 'Back', places_path %>

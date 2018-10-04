@@ -143,7 +143,7 @@
         1,
         null,
         1,
-        78,
+        84,
         null,
         45,
         null,
@@ -436,6 +436,67 @@
         null,
         null
       ],
+      "/home/jarkkok/projektit/kurssit/web-palvelinohjelmointi2018/ratebeer/lib/beermapping_api.rb": [
+        1,
+        1,
+        5,
+        null,
+        9,
+        null,
+        null,
+        1,
+        4,
+        null,
+        4,
+        4,
+        null,
+        4,
+        null,
+        4,
+        4,
+        5,
+        null,
+        null,
+        null,
+        1,
+        4,
+        null,
+        4,
+        null,
+        null
+      ],
+      "/home/jarkkok/projektit/kurssit/web-palvelinohjelmointi2018/ratebeer/app/models/place.rb": [
+        1,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/home/jarkkok/projektit/kurssit/web-palvelinohjelmointi2018/ratebeer/app/controllers/places_controller.rb": [
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        1,
+        3,
+        3,
+        3,
+        1,
+        null,
+        2,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
       "/home/jarkkok/projektit/kurssit/web-palvelinohjelmointi2018/ratebeer/app/controllers/ratings_controller.rb": [
         1,
         1,
@@ -647,6 +708,6 @@
         0
       ]
     },
-    "timestamp": 1538058022
+    "timestamp": 1538647240
   }
 }
