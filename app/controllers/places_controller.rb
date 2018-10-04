@@ -1,5 +1,6 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show]
+  before_action :set_weather, only: [:index, :search]
 
   def index
   end
@@ -15,6 +16,10 @@ class PlacesController < ApplicationController
   end
 
   def show
+  end
+
+  def set_weather
+    @weather = ApixuApi.weather_in("helsinki")
   end
 
   def set_place

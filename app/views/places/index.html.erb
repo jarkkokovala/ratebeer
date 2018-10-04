@@ -7,6 +7,14 @@
   <%= submit_tag "Search" %>
 <% end %>
 
+<% if @weather %>
+  <p>
+   <strong>The current beer weather in Helsinki</strong>
+   Temperature <%= @weather["temp_c"] %> degrees Celsius<br />
+   <%= link_to image_tag(@weather["condition"]["icon"]) %><br />
+   Wind <%= (@weather["wind_kph"]/3.6).round(2) %> m/sec, direction <%= @weather["wind_dir"] %>
+  </p>
+<% end %>
 <% if @places %>
 <p>
   <table>
