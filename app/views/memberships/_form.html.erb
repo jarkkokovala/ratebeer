@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.select :beerclub_id, options_from_collection_for_select(@beerclubs - current_user.beerclubs, :id, :name) %>
+    <%= form.select :beerclub_id, options_from_collection_for_select(@beerclubs - current_user.beerclubs, :id, :name), {}, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit "Join club" %>
+    <%= form.submit "Join club", class:"btn btn-primary" %>
   </div>
 <% end %>
