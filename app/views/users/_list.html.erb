@@ -3,6 +3,7 @@
     <tr>
       <th>Username</th>
       <th>Number of ratings</th>
+      <th colspan=2>
     </tr>
   </thead>
 
@@ -11,6 +12,9 @@
       <tr>
         <td><%= link_to user.username, user_path(user) %></td>
         <td><%= user.ratings.count() %></td>
+        <% if current_user && current_user.admin && user.suspended %>
+          <td><strong>Account suspended</strong></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

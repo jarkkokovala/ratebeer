@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :styles
   resources :memberships
   resources :beerclubs
-  resources :users
+  resources :users do
+    post 'toggle_suspended', on: :member
+  end
   resources :beers
   resources :breweries do
     post 'toggle_activity', on: :member

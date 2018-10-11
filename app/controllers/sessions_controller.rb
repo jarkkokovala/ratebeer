@@ -7,8 +7,12 @@ class SessionsController < ApplicationController
     user = User.find_by username: params[:username]
 
     if user&.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to user, notice: "Welcome back!"
+      if user.suspended
+        redirect_to signin_path, notice: "Account suspended, contact administrator"
+      else
+        session[:user_id] = user.id
+        redirect_to user, notice: "Welcome back!"
+      end
     else
       redirect_to signin_path, notice: "Signin failed!"
     end

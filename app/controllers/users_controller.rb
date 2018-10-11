@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :toggle_suspended]
+  before_action :ensure_that_signed_in, except: [:index, :show, :new, :create]
+  before_action :ensure_that_admin, only: [:destroy, :toggle_suspended]
 
   # GET /users
   # GET /users.json
@@ -61,6 +63,14 @@ class UsersController < ApplicationController
       format.html { redirect_to :root }
       format.json { head :no_content }
     end
+  end
+
+  def toggle_suspended
+    @user.update_attribute :suspended, !@user.suspended
+
+    new_status = @user.suspended? ? "suspended" : "active"
+
+    redirect_to @user, notice: "user suspension status changed to #{new_status}"
   end
 
   private

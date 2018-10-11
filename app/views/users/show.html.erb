@@ -1,6 +1,17 @@
 <p>
+  <br />
   <strong>Username:</strong>
   <%= @user.username %>
+  <% if current_user && current_user.admin && @user != current_user %>
+    <p>
+    <% if @user.suspended %>
+      <strong>Account is suspended.</strong>
+      <%= link_to "unsuspend account", toggle_suspended_user_path(@user.id), method: :post, class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "suspend account", toggle_suspended_user_path(@user.id), method: :post, class: "btn btn-primary" %>
+    <% end %>
+    </p>
+  <% end %>
 </p>
 <p>
   <% if @user.beerclubs.empty? %>

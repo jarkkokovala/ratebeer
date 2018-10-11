@@ -228,9 +228,9 @@
         1,
         null,
         1,
-        100,
+        122,
         null,
-        70,
+        90,
         null,
         null,
         1,
@@ -275,7 +275,11 @@
         null,
         7,
         6,
+        0,
+        null,
         6,
+        6,
+        null,
         null,
         1,
         null,
@@ -290,6 +294,8 @@
         null
       ],
       "/home/jarkkok/projektit/kurssit/web-palvelinohjelmointi2018/ratebeer/app/controllers/users_controller.rb": [
+        1,
+        1,
         1,
         1,
         null,
@@ -353,6 +359,14 @@
         0,
         0,
         null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        null,
+        0,
         null,
         null,
         1,
@@ -880,6 +894,6 @@
         0
       ]
     },
-    "timestamp": 1539264459
+    "timestamp": 1539276227
   }
 }
