@@ -30,18 +30,17 @@
     You are member of this club.
     <%= form_for(current_user.memberships.find_by(beerclub_id: @beerclub.id), method: "delete") do |f| %>
       <%= f.hidden_field :beerclub_id %>
-      <%= f.submit value: "end the membership"  class:"btn btn-danger" %>
+      <%= f.submit value: "end the membership", class:"btn btn-danger" %>
     <% end %>
   <% else %>
     <%= form_for(@membership) do |f| %>
       <%= f.hidden_field :beerclub_id %>
-      <%= f.submit value:"join the club" class:"btn btn-primary" %>
+      <%= f.submit value:"join the club", class:"btn btn-primary" %>
     <% end %>
   <% end %>
   </p>
-
-  <%= link_to 'Destroy', @beerclub, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %></td>
 <% end %>
 
-<%= link_to 'Edit', edit_beerclub_path(@beerclub) if current_user %> |
-<%= link_to 'Back', beerclubs_path %>
+<%= edit_and_destroy_buttons(@beerclub) %>
+
+<%= link_to 'Back', beerclubs_path, class:"btn btn-primary" %>

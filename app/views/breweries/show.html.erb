@@ -34,5 +34,8 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_brewery_path(@brewery) if current_user %> |
-<%= link_to 'Back', breweries_path %>
+<%= link_to "change activity", toggle_activity_brewery_path(@brewery.id), method: :post, class: "btn btn-primary" %>
+
+<%= edit_and_destroy_buttons(@brewery) %>
+
+<%= link_to 'Back', breweries_path, class:"btn btn-primary" %>

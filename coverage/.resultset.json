@@ -3,6 +3,19 @@
     "coverage": {
       "/home/jarkkok/projektit/kurssit/web-palvelinohjelmointi2018/ratebeer/app/helpers/application_helper.rb": [
         1,
+        1,
+        13,
+        null,
+        10,
+        10,
+        null,
+        null,
+        10,
+        null,
+        null,
+        1,
+        7,
+        null,
         null
       ],
       "/home/jarkkok/projektit/kurssit/web-palvelinohjelmointi2018/ratebeer/app/helpers/beerclubs_helper.rb": [
@@ -133,6 +146,8 @@
       "/home/jarkkok/projektit/kurssit/web-palvelinohjelmointi2018/ratebeer/app/controllers/styles_controller.rb": [
         1,
         1,
+        1,
+        1,
         null,
         null,
         null,
@@ -213,13 +228,17 @@
         1,
         null,
         1,
-        88,
+        100,
         null,
-        60,
+        70,
         null,
         null,
         1,
         4,
+        null,
+        null,
+        1,
+        0,
         null,
         null
       ],
@@ -386,6 +405,7 @@
         1,
         1,
         1,
+        1,
         null,
         null,
         null,
@@ -471,6 +491,7 @@
         1,
         1,
         1,
+        1,
         null,
         null,
         null,
@@ -531,6 +552,14 @@
         0,
         0,
         null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        null,
+        0,
         null,
         null,
         1,
@@ -693,6 +722,7 @@
         0,
         0,
         0,
+        0,
         null,
         null,
         null,
@@ -850,6 +880,6 @@
         0
       ]
     },
-    "timestamp": 1539261866
+    "timestamp": 1539264459
   }
 }

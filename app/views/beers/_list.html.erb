@@ -15,7 +15,7 @@
         <td><%= link_to beer.name, beer %></td>
         <td><%= beer.style.name %></td>
         <td><%= link_to beer.brewery.name, beer.brewery %></td>
-        <td><%= "%.1f" % beer.average_rating %>
+        <td><%= round(beer.average_rating) %>
         <td></td>
       </tr>
     <% end %>
