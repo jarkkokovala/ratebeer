@@ -35,7 +35,6 @@ class User < ApplicationRecord
     return nil if ratings.empty?
 
     brewery_id = ratings.joins(:beer).group('beers.brewery_id').average('score').sort_by { |a| a[1] }.reverse.first[0]
-
     Brewery.find_by(id: brewery_id)
   end
 
