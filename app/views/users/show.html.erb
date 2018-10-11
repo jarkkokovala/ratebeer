@@ -16,7 +16,7 @@
   <% if @user.ratings.count > 0 %>
     <strong>Favorite style: <%= @user.favorite_style.name %></strong><br />
     <strong>Favorite brewery: <%= @user.favorite_brewery.name %></strong><br /><br />
-    <strong>Ratings, average: <%= '%.2f' % @user.average_rating %> </strong>
+    <strong><%= @user.ratings.count %> ratings, average: <%= '%.2f' % @user.average_rating %> </strong>
     <table>
       <tbody>
         <% @user.ratings.each do |rating| %>

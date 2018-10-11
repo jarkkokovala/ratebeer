@@ -31,11 +31,11 @@ describe "Rating" do
     r1 = FactoryBot.create :rating, score: 10, beer: beer1, user: user
     r2 = FactoryBot.create :rating, score: 20, beer: beer2, user: user
 
-    visit ratings_path
+    visit user_path(user)
 
-    expect(page).to have_content "#{beer1.name} #{r1.score}"
-    expect(page).to have_content "#{beer2.name} #{r2.score}"
-    expect(page).to have_content "Number of ratings: #{user.ratings.count}"
+    expect(page).to have_content "#{beer1.name}, #{r1.score}"
+    expect(page).to have_content "#{beer2.name}, #{r2.score}"
+    expect(page).to have_content "#{user.ratings.count} ratings"
   end
 
   it "when rating is removed, it goes away" do

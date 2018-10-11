@@ -49,7 +49,7 @@ describe "User" do
     visit user_path(user)
     expect(page).to have_content "Favorite style: IPA"
     expect(page).to have_content "Favorite brewery: Olvi"
-    expect(page).to have_content "Ratings, average: 15"
+    expect(page).to have_content "#{user.ratings.count} ratings, average: 15"
     expect(page).to have_content "#{beer1.name}, #{r1.score} points"
     expect(page).to have_content "#{beer2.name}, #{r2.score} points"
     expect(page).not_to have_content "#{beer2.name}, #{r3.score} points"

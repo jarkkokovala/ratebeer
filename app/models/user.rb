@@ -38,4 +38,10 @@ class User < ApplicationRecord
 
     Brewery.find_by(id: brewery_id)
   end
+
+  def self.top(count)
+    sorted_by_rating_count_in_desc_order = User.all.sort_by{ |u| -(u.ratings.count || 0) }
+
+    sorted_by_rating_count_in_desc_order[0..count - 1]
+  end
 end

@@ -7,5 +7,14 @@ class Brewery < ApplicationRecord
                                    less_than_or_equal_to: proc { Time.now.year },
                                    only_integer: true }
 
+  scope :active, -> { where active: true }
+  scope :retired, -> { where active: [nil, false] }
+
   include RatingAverage
+
+  def self.top(count)
+    sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating || 0) }
+
+    sorted_by_rating_in_desc_order[0..count - 1]
+  end
 end
