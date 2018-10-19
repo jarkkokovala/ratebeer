@@ -8,7 +8,7 @@
   </thead>
 
   <tbody>
-    <% @beers.each do |beer| %>
+    <% beers.each do |beer| %>
       <tr>
         <td><%= link_to beer.name, beer %></td>
         <td><%= link_to beer.style, beer.style %></td>
@@ -17,3 +17,4 @@
     <% end %>
   </tbody>
 </table>
+  

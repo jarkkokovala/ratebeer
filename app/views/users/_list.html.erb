@@ -2,19 +2,22 @@
   <thead>
     <tr>
       <th>Username</th>
-      <th>Number of ratings</th>
-      <th colspan=2>
+      <th> rated beers </th>
+      <th> total ratings </th>
+      <th></th>
     </tr>
   </thead>
-
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= link_to user.username, user_path(user) %></td>
-        <td><%= user.ratings.count() %></td>
-        <% if current_user && current_user.admin && user.suspended %>
-          <td><strong>Account suspended</strong></td>
-        <% end %>
+        <td><%= link_to user.username, user %></td>
+        <td><%= user.beers.size %></td>
+        <td><%= user.ratings.size %></td>
+        <td>
+          <% if current_user && current_user.admin && user.suspended %>
+            <span class="label label-info">Account suspended</span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

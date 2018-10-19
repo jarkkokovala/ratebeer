@@ -1,7 +1,10 @@
 <h1>Beers</h1>
 
-<%= render 'list', beers: @beers %>
+<% cache 'beerlist-#{@order}', skip_digest: true do %>
+    <%= render 'list', beers: @beers %> 
 
-<p> Number of beers: <%= @beers.count %></p>
+    <p> Number of beers: <%= @beers.count %></p>
+<% end %>
+
 <%= link_to 'New Beer', new_beer_path, class:"btn btn-primary" if current_user %>
 <br>

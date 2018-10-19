@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   get 'brewerylist', to:'breweries#list'
   
   root 'breweries#index'
+
+  get 'auth/:provider/callback', to: 'sessions#create_oauth'
 end

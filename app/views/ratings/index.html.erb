@@ -11,18 +11,18 @@ Most recent ratings
 
 Top beers
 
-<%= render 'beers/list', beers: Beer.top(3) %>
+<%= render 'beers/list', beers: @beers %>
 
 Top breweries
 
-<%= render 'breweries/list', breweries: Brewery.top(3) %>
+<%= render 'breweries/list', breweries: @breweries %>
 
 Top styles
 
-<%= render 'styles/list', styles: Style.top(3) %>
+<%= render 'styles/list', styles: @styles %>
 
 Most active users
 
-<%= render 'users/list', users: User.top(3) %>
+<%= render 'users/list', users: @users %>
 
 <%= link_to 'New rating', new_rating_path, class:"btn btn-primary" if current_user %>
