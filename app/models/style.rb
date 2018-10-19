@@ -9,4 +9,8 @@ class Style < ApplicationRecord
 
     sorted_by_rating_in_desc_order[0..count - 1]
   end
+
+  def to_s
+    name
+  end
 end
