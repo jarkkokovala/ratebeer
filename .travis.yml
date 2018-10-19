@@ -1,9 +1,8 @@
-sudo: required
 addons:
-  chrome: stable
-  apt:
-    packages:
-      - chromium-chromedriver
+  sauce_connect:
+    username: "jarkkokovala"
+  jwt:
+    secure: "nQDgZ3foqSMcf+l5NgccILk2FXUI+aMueLbB4ZwzPzV++SUKMaWChgP5GpDHEW8fLb3MkC/Ur0YFfExmjgpply0RRxEEinoX3UFGcjmIImoRO4yck/a883pVkHNb5Io/5HlXwx6aJypLL4b+jc+DBsZQvuU7SDO0hVGp/4kh2HmXIHPt5mnQOOY9yAjOlqiKX/CCsuYhcX8PGVUWFk+gh6keUpNtl9O5SXJFHjoVz/+abU5l5o/aXZsr6uHqTZ8NQbLvatFL/oZv5H03SFKim1jP2WOkfaaPAxJyFFP9xbKuvVYcpb3l3wlrNnSynXAXWgueVFYAolqpcp2kWKfDv2UVpLYYfVrFa6wdHAHRTMltMkMNfhuwb8eQEubGsJsgUs/EJW8q3Jd6muo8wUZFfqWooYrbAyVUNEHyy/Bde2Ge5ycV4UemSmT8SJbhzU7qhliAAtUTyc8N1zZjIrqhLmaPDTYqg+Dfc0+BNxtZQzSxQKCC90kDbQesgZKAlqLbRiVVwjnY/rbV/X8tF1ZMmvaLde8ak//VEOfVHzI33JUJEcwCUsyaWhfZex23fqg2B0O5fDzttX9BYZ24HtGt33ZqU6DbreRBkDoe+j1q0xwcISknw7F6Zu/TJBu0jBBwbH7Z3d8s9PcZpA0mhRUsuZp93RiNO49xiSFUuZnr7M8="
 language: ruby
 rvm:
 - 2.5.1

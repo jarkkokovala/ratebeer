@@ -24,4 +24,12 @@ describe "Beerlist page" do
     visit beerlist_path
     expect(page).to have_content "Nikolai"
   end
+
+  it "shows the beers in correct order", js:true do
+    visit beerlist_path
+
+    expect(find('table').find('tr:nth-child(2)')).to have_content "Fastenbier"
+    expect(find('table').find('tr:nth-child(3)')).to have_content "Lechte Weisse"
+    expect(find('table').find('tr:nth-child(4)')).to have_content "Nikolai"
+  end
 end
