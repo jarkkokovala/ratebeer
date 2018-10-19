@@ -3,7 +3,13 @@ require 'rails_helper'
 describe "Beerlist page" do
   before :all do
     Capybara.register_driver :selenium do |app|
-      Capybara::Selenium::Driver.new(app, :browser => :chrome)
+      capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+        chromeOptions: { args: ['headless', 'disable-gpu']  }
+      )
+
+      Capybara::Selenium::Driver.new app,
+        browser: :chrome,
+        desired_capabilities: capabilities      
     end
     WebMock.disable_net_connect!(allow_localhost: true) 
   end
