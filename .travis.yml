@@ -1,6 +1,9 @@
 sudo: required
 addons:
   chrome: stable
+  apt:
+    packages:
+      - chromium-chromedriver
 language: ruby
 rvm:
 - 2.5.1
