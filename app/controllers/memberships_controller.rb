@@ -1,5 +1,5 @@
 class MembershipsController < ApplicationController
-  before_action :set_membership, only: [:show, :edit, :update, :destroy]
+  before_action :set_membership, only: [:show, :edit, :update, :set_confirmed, :destroy]
 
   # GET /memberships
   # GET /memberships.json
@@ -30,7 +30,7 @@ class MembershipsController < ApplicationController
 
     respond_to do |format|
       if @membership.save
-        format.html { redirect_to @membership.beerclub, notice: current_user.username + ' welcome to the club' }
+        format.html { redirect_to @membership.beerclub, notice: current_user.username + ' membership application sent for approval' }
         format.json { render :show, status: :created, location: @membership }
       else
         format.html { render :new }
@@ -51,6 +51,12 @@ class MembershipsController < ApplicationController
         format.json { render json: @membership.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def set_confirmed
+    @membership.update_attribute :confirmed, true
+
+    redirect_to @membership.beerclub, notice: "User #{@membership.user.username} membership application confirmed"
   end
 
   # DELETE /memberships/1

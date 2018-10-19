@@ -18,19 +18,31 @@
     <strong>No members yet</strong>
   <% else %>
     <strong>Members:</strong>
-    <% @beerclub.users.each do |user| %>
-      <%= link_to user.username, user %>
+    <% @beerclub.memberships.where(confirmed: true).each do |membership| %>
+      <%= link_to membership.user.username, membership.user %>
     <% end %>
   <% end %>
 </p>
 
 <% if current_user %>
   <p>
-  <% if current_user.beerclubs.any? && current_user.beerclubs.find(@beerclub.id) %>
-    You are member of this club.
-    <%= form_for(current_user.memberships.find_by(beerclub_id: @beerclub.id), method: "delete") do |f| %>
-      <%= f.hidden_field :beerclub_id %>
-      <%= f.submit value: "end the membership", class:"btn btn-danger" %>
+  <% if current_user.beerclubs.any? && current_user.beerclubs.where(id: @beerclub.id).any? %>
+
+    <% if @beerclub.memberships.find_by(user: current_user).confirmed %>
+      <p>
+        <strong>Pending applications:</strong>
+          <% @beerclub.memberships.where(confirmed: nil).each do |membership| %>
+            <%= link_to membership.user.username, membership.user %>
+            <%= link_to "confirm", set_confirmed_membership_path(membership), method: :post, class: "btn btn-primary" %>
+          <% end %>      
+      </p>
+      You are member of this club.
+      <%= form_for(current_user.memberships.find_by(beerclub_id: @beerclub.id), method: "delete") do |f| %>
+        <%= f.hidden_field :beerclub_id %>
+        <%= f.submit value: "end the membership", class:"btn btn-danger" %>
+      <% end %>
+    <% else %>
+      Your membership application is pending.
     <% end %>
   <% else %>
     <%= form_for(@membership) do |f| %>

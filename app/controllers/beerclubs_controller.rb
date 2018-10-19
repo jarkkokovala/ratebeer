@@ -42,6 +42,8 @@ class BeerclubsController < ApplicationController
   def create
     @beerclub = Beerclub.new(beerclub_params)
 
+    Membership.create(user: current_user, beerclub: @beerclub, confirmed: true)
+
     respond_to do |format|
       if @beerclub.save
         format.html { redirect_to @beerclub, notice: 'Beerclub was successfully created.' }

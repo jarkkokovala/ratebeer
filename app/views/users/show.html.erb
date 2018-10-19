@@ -18,8 +18,13 @@
     <strong>No beerclub memberships.</strong>
   <% else %>
     <strong>Beerclubs:</strong>
-    <% @user.beerclubs.each do |beerclub| %>
-      <%= link_to beerclub.name, beerclub %>
+    <% @user.memberships.where(confirmed: true).each do |membership| %>
+      <%= link_to membership.beerclub.name, membership.beerclub %>
+    <% end %>
+    <br>
+    <strong>Applied membership of:</strong>
+        <% @user.memberships.where(confirmed: nil).each do |membership| %>
+      <%= link_to membership.beerclub.name, membership.beerclub %>
     <% end %>
   <% end %>
 </p>
