@@ -3,19 +3,28 @@ require 'rails_helper'
 describe "Beerlist page" do
   before :all do
     capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: ['headless', 'disable-gpu']  }
+      chromeOptions: { args: ['headless', 'disable-gpu'] }
     )
 
     Capybara.register_driver :selenium do |app|
       if ENV.has_key?('TRAVIS')
+        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+          chromeOptions: { args: ['headless', 'disable-gpu'],
+                           'tunnel-identifier' => ENV["TRAVIS_JOB_NUMBER"]
+                         }
+        )
+
         hub_url = "#{ENV["SAUCE_USERNAME"]}:#{ENV["SAUCE_ACCESS_KEY"]}@localhost:4445"
-        capabilities["tunnel-identifier"] = ENV["TRAVIS_JOB_NUMBER"]
         
         Capybara::Selenium::Driver.new(app, 
           browser: :remote, 
           url: "http://#{hub_url}/wd/hub", 
           desired_capabilities: capabilities)
       else
+        capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+          chromeOptions: { args: ['headless', 'disable-gpu'] }
+        )    
+
         Capybara::Selenium::Driver.new app,
           browser: :chrome,
           desired_capabilities: capabilities      
@@ -40,7 +49,7 @@ describe "Beerlist page" do
     visit beerlist_path
 
     puts page.html if ENV.has_key?('TRAVIS')
-    
+
     expect(page).to have_content "Nikolai"
   end
 
