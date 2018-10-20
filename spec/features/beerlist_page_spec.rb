@@ -38,6 +38,9 @@ describe "Beerlist page" do
 
   it "shows the known beers", js:true do
     visit beerlist_path
+
+    puts page.html if ENV.has_key?('TRAVIS')
+    
     expect(page).to have_content "Nikolai"
   end
 
