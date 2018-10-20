@@ -8,7 +8,7 @@ describe "Beerlist page" do
 
     Capybara.register_driver :selenium do |app|
       if ENV.has_key?('TRAVIS')
-        hub_url = "#{ENV["SAUCE_USERNAME"]}:#{ENV["SAUCE_USERNAME"]}localhost:4445"
+        hub_url = "#{ENV["SAUCE_USERNAME"]}:#{ENV["SAUCE_ACCESS_KEY"]}@localhost:4445"
         capabilities["tunnel-identifier"] = ENV["TRAVIS_JOB_NUMBER"]
         
         Capybara::Selenium::Driver.new(app, 
