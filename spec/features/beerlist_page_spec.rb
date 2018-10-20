@@ -9,7 +9,7 @@ describe "Beerlist page" do
     Capybara.register_driver :selenium do |app|
       if ENV.has_key?('TRAVIS')
         hub_url = "#{ENV["SAUCE_USERNAME"]}:#{ENV["SAUCE_USERNAME"]}localhost:4445"
-        capabilities["tunnel-identifier"] = os.environ["TRAVIS_JOB_NUMBER"]
+        capabilities["tunnel-identifier"] = ENV["TRAVIS_JOB_NUMBER"]
         
         Capybara::Selenium::Driver.new(app, 
           browser: :remote, 
@@ -19,7 +19,7 @@ describe "Beerlist page" do
         Capybara::Selenium::Driver.new app,
           browser: :chrome,
           desired_capabilities: capabilities      
-        end
+      end
     end
     WebMock.disable_net_connect!(allow_localhost: true) 
   end
