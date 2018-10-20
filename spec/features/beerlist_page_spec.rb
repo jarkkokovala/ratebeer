@@ -9,7 +9,7 @@ describe "Beerlist page" do
     Capybara.register_driver :selenium do |app|
       if ENV.has_key?('TRAVIS')
         capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-          chromeOptions: { args: ['headless', 'disable-gpu'] },
+          chromeOptions: { args: ['disable-gpu'] },
           'tunnel-identifier' => ENV["TRAVIS_JOB_NUMBER"]
         )
 
