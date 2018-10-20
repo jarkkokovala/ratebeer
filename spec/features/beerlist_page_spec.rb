@@ -13,7 +13,7 @@ describe "Beerlist page" do
         
         Capybara::Selenium::Driver.new(app, 
           browser: :remote, 
-          url: "http://#{hub_url}:4444/wd/hub", 
+          url: "http://#{hub_url}/wd/hub", 
           desired_capabilities: capabilities)
       else
         Capybara::Selenium::Driver.new app,
