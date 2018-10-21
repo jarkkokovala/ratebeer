@@ -55,10 +55,13 @@
             </li>     
           <% else %>
             <li class="nav-item">
-              <%= link_to 'signin', new_session_path, { class: "nav-link" } %>
+              <%= link_to 'login', new_session_path, { class: "btn btn-primary" } %>
+            </li>
+            <li class="nav-item">
+              &thinsp;<%= link_to 'Github login', 'auth/github', { class: "btn btn-primary" } %>
             </li>  
             <li class="nav-item">
-              <%= link_to 'signup', new_user_path, { class: "nav-link" } %>
+              &thinsp;<%= link_to 'sign up', new_user_path, { class: "btn btn-primary" } %>
             </li>                        
           <% end %>                            
         </ul>

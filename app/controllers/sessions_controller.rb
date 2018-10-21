@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by username: params[:username]
+    user = User.where(username: params[:username], github: nil).first
 
     if user&.authenticate(params[:password])
       if user.suspended
@@ -19,6 +19,24 @@ class SessionsController < ApplicationController
   end
 
   def create_oauth
+    github_name = request.env["omniauth.auth"].info.nickname
+    user = User.where(username: github_name, github: true).first
+
+    if user.nil?
+      user = User.new username: github_name, github: true
+      newpass = SecureRandom.urlsafe_base64
+      user.password = newpass
+      user.password_confirmation = newpass
+      user.save
+
+      session[:user_id] = user.id
+      redirect_to user, notice: "Welcome #{user.username}"
+    elsif user.suspended
+      redirect_to signin_path, notice: "Account suspended, contact administrator"
+    else
+      session[:user_id] = user.id
+      redirect_to user, notice: "Welcome back!"
+    end
   end
 
   def destroy

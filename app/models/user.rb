@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  validates :username, uniqueness: true, length: { minimum: 3, maximum: 30 }
+  validates :username, uniqueness: { scope: :github }, length: { minimum: 3, maximum: 30 }
 
   PASSWORD_FORMAT = /\A
   (?=.{4,})          # Must contain 4 or more characters
