@@ -11,10 +11,9 @@ class Brewery < ApplicationRecord
   scope :retired, -> { where active: [nil, false] }
 
   include RatingAverage
+  extend Top
 
-  def self.top(count)
-    sorted_by_rating_in_desc_order = Brewery.all.sort_by{ |b| -(b.average_rating || 0) }
-
-    sorted_by_rating_in_desc_order[0..count - 1]
+  def to_s
+    name
   end
 end
